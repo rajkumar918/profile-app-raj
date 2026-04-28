@@ -1,0 +1,14 @@
+{
+  "name": "profile-app-backend",
+  "version": "1.0.0",
+  "description": "Example Express backend for profile-app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5"
+  }
+}

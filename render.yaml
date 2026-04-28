@@ -1,0 +1,33 @@
+# Example Render service config for deploying the backend service.
+# Adjust "name", "region", and plan as needed. Render will also accept configuration via their UI.
+services:
+  - type: web
+    name: profile-app-backend
+    env: node
+    plan: free
+    region: oregon
+    # Root directory inside repository where the server lives
+    # When adding this service in Render, set "Root Directory" to "profile-app/server" (repo folder remains `profile-app`)
+    buildCommand: npm install
+    startCommand: npm start
+    # Optionally set environment variables in the Render dashboard, e.g.:
+    # CORS_ORIGIN: https://your-frontend.vercel.app
+
+databases:
+  # Example Postgres managed database (replace names before applying)
+  - name: profile-app-db
+    engine: postgres
+    plan: free
+    region: oregon
+
+# Note: Depending on your Render account, applying databases via YAML may require exact project names
+# and account permissions. If this does not work in your account, create the database via Render UI and
+# copy the connection string into the Web Service environment variable `DATABASE_URL`.
+
+# After creating the database, set the following env var for your web service (in Render UI):
+# DATABASE_URL: <the connection string from the database>
+
+# For CORS restrict the origin to your frontend domain, set:
+# CORS_ORIGIN: https://your-frontend.vercel.app
+
+# Note: Render's YAML support varies by account; you can also configure the service via the Render web console.
