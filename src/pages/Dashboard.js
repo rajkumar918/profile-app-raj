@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/Dashboard.css';
 
@@ -9,7 +8,7 @@ const Dashboard = () => {
   const [editorOpen, setEditorOpen] = useState(false);
   const [editorSection, setEditorSection] = useState(null);
   const [editorData, setEditorData] = useState({});
-  const navigate = useNavigate();
+  // navigate removed — not used in this component
 
   useEffect(() => {
     try {
